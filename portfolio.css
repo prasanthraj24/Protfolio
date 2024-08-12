@@ -341,11 +341,12 @@ span {
     justify-content: center;
     justify-items: center;
     flex-direction: column;
-    min-height: auto;
+    min-height: 100%;
     padding-bottom: 5rem;
     background: url(education.jpg)no-repeat;
     background-size: cover;
     background-position: center;
+    height: 100%;
 }
 
 .Education .Education-row{
@@ -414,16 +415,14 @@ span {
     padding-bottom: .5rem;
 }
 
-.Education-content.content .year i {
-    padding-right: .5rem;
-}
+
 
 .Education-content.content h3{
     font-size: 2rem;
 }
 
 .Education-content.content p{
-    font-size: 1.6rem;
+    font-size: 10.6rem;
     padding-top: .5rem;
 }
 
@@ -577,6 +576,7 @@ span {
     text-align: center;
     flex-direction: column;
     align-items: center; 
+    position: relative;
     
 }
 
@@ -595,17 +595,24 @@ span {
 .experience-row-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
 
 }
 
 .experience-row {
     display: flex;
-    flex-direction: row;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 90%;
     gap: 20px;
+    padding: 50px;
 }
 
 .experience-item {
-    flex: 1;
+    flex: 0 0 500px;
     border: 1px solid #ccc;
     padding: 50px;
     border-radius: 8px;
@@ -618,11 +625,36 @@ span {
 .experience-item h3 {
     margin-top: 0;
 }
-
-.experience-item p {
-    margin: 10px 0;
+.scroll-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
 }
 
+.experience-row::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-btn.left {
+   left: 0;
+}
+
+.scroll-btn.right {
+    right: 0;
+}
+
+@media (max-width: 768px) {
+    .experience-item {
+        flex: 0 0 80%;
+        margin: 0 5px;
+    }
+}
 
 /* Contact */
 .Contact{
